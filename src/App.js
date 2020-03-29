@@ -18,7 +18,7 @@ const App = () => {
     }, [currentCategory, todos]);
 
     const addTodo = () => {
-        if (descriptionQuery.length > 0) {
+        if (descriptionQuery.length > 0 && categoryQuery.length > 0) {
             setDescriptionQuery('');
             setTodos([...todos, {id: uuidv4(), description: descriptionQuery, category: categoryQuery, isDone: false}]);
             filterTodos(todos, currentCategory)
