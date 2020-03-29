@@ -38,10 +38,9 @@ const App = () => {
         setCurrentCategory(selectedCategory);
     };
 
-    const filterTodos = (allTodoItems) => {
+    const filterTodos = (allTodoItems, currentCategory) => {
         return allTodoItems.filter(todo => todo.category === currentCategory);
     };
-
 
     const TodoListJSX = filteredTodos.map(todo =>
         <TodoItem
@@ -58,7 +57,7 @@ const App = () => {
                 <div className='add-item'>
                     <input value={descriptionQuery} onChange={e => setDescriptionQuery(e.target.value)} placeholder='add a task...'/>
                     <input value={categoryQuery} onChange={e => setCategoryQuery(e.target.value)}/>
-                    <span className='plus' onClick={() => addTodo()}> ➕</span>
+                    <span role="img" aria-label="+" className='plus' onClick={() => addTodo()}> ➕</span>
                 </div>
             </section>
             <section className='column'>
